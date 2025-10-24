@@ -1,0 +1,15 @@
+{
+  "buildCommand": "npm run build && cp server/content.json dist/public/content.json",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/api/content",
+      "destination": "/content.json"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

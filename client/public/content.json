@@ -1,0 +1,122 @@
+{
+  "hero": {
+    "title": "Varma Investments",
+    "subtitle": "Building Wealth Through Smart Investment.",
+    "description": "Expert investment services in Rahata, specializing in shares, mutual funds, and bonds. Let us help you achieve your financial goals.",
+    "trustIndicators": [
+      {
+        "text": "20+ Years Experience",
+        "icon": "trending-up"
+      },
+      {
+        "text": "5000+ Happy Clients",
+        "icon": "users"
+      }
+    ]
+  },
+  "services": [
+    {
+      "title": "Shares",
+      "description": "Invest in carefully selected stocks with our expert guidance. We analyze market trends and company fundamentals to help you build a profitable equity portfolio.",
+      "features": [
+        "Market Analysis",
+        "Portfolio Diversification",
+        "Risk Management",
+        "Regular Updates"
+      ],
+      "icon": "trending-up"
+    },
+    {
+      "title": "Mutual Funds",
+      "description": "Access professionally managed mutual funds suited to your risk profile and investment goals. From equity to debt funds, we help you choose the right mix.",
+      "features": [
+        "Goal-Based Planning",
+        "SIP Investments",
+        "Fund Selection",
+        "Performance Tracking"
+      ],
+      "icon": "pie-chart"
+    },
+    {
+      "title": "Bonds",
+      "description": "Secure your investments with government and corporate bonds. Get stable returns with lower risk, perfect for conservative investors and retirement planning.",
+      "features": [
+        "Fixed Income",
+        "Low Risk Options",
+        "Tax Benefits",
+        "Liquidity Solutions"
+      ],
+      "icon": "shield"
+    }
+  ],
+  "stats": [
+    {
+      "number": "20+",
+      "label": "Years in Business",
+      "description": "Trusted expertise"
+    },
+    {
+      "number": "5,000+",
+      "label": "Active Clients",
+      "description": "Investors nationwide"
+    },
+    {
+      "number": "₹500Cr+",
+      "label": "Assets Under Management",
+      "description": "Growing portfolio"
+    },
+    {
+      "number": "98%",
+      "label": "Client Satisfaction",
+      "description": "Happy investors"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Rajesh Kumar",
+      "investment": "Equity & Mutual Funds",
+      "quote": "Varma Investments helped me build a diversified portfolio that has consistently delivered 18% annual returns. Their expertise in stock selection is remarkable.",
+      "initials": "RK"
+    },
+    {
+      "name": "Priya Sharma",
+      "investment": "SIP & Bonds",
+      "quote": "The team's personalized approach to investment planning helped me achieve my goal of buying a home. I especially appreciate their transparency and regular updates.",
+      "initials": "PS"
+    },
+    {
+      "name": "Amit & Neha Patel",
+      "investment": "Retirement Planning",
+      "quote": "We were confused about retirement planning until we met Varma Investments. They created a perfect mix of mutual funds and bonds that gives us peace of mind.",
+      "initials": "AP"
+    }
+  ],
+  "contact": {
+    "address": {
+      "line1": "Varma Investments, Shop Number 5",
+      "line2": "Radhakrishna Vikhe Patil Complex, Chitali Road Rahata",
+      "line3": "Dist- Ahilyanagar, Pin- 423107"
+    },
+    "phone": {
+      "primary": "+91 9403034505",
+      "secondary": "+91 9403034505",
+      "hours": "Mon-Sat: 9:00 AM - 6:00 PM"
+    },
+    "email": {
+      "primary": "varmainvestment2008@gmail.com",
+      "secondary": "varmainvestment2008@gmail.com",
+      "note": "Quick response guaranteed"
+    },
+    "businessHours": [
+      "Monday - Friday: 9:00 AM - 6:00 PM",
+      "Saturday: 9:00 AM - 2:00 PM",
+      "Sunday: Closed"
+    ]
+  },
+  "footer": {
+    "companyName": "Varma Investments",
+    "tagline": "Your trusted partner for wealth creation through smart investments in shares, mutual funds, and bonds.",
+    "registration": "Registered Investment Advisor",
+    "copyright": "© 2025 Varma Investments. All rights reserved."
+  }
+}
