@@ -20,6 +20,12 @@ export default function Footer() {
               <Building2 className="h-6 w-6 text-ring" />
               <h3 className="text-xl font-bold">{content.footer.companyName}</h3>
             </div>
+            <p className="text-sm text-primary-foreground/90 mb-1 font-semibold">
+              {content.footer.establishedYear}
+            </p>
+            <p className="text-sm text-primary-foreground/90 mb-3 font-medium">
+              {content.footer.owner}
+            </p>
             <p className="text-primary-foreground/80 mb-4">
               {content.footer.tagline}
             </p>

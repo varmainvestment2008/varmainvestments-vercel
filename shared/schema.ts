@@ -73,6 +73,8 @@ export const contentSchema = z.object({
   }),
   footer: z.object({
     companyName: z.string(),
+    owner: z.string(),
+    establishedYear: z.string(),
     tagline: z.string(),
     registration: z.string(),
     copyright: z.string(),
