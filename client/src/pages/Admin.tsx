@@ -22,6 +22,18 @@ export default function Admin() {
   const [activeTab, setActiveTab] = useState("hero");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
+  // Prevent search engines from indexing the admin page
+  useEffect(() => {
+    const metaTag = document.createElement('meta');
+    metaTag.name = 'robots';
+    metaTag.content = 'noindex, nofollow';
+    document.head.appendChild(metaTag);
+
+    return () => {
+      document.head.removeChild(metaTag);
+    };
+  }, []);
+
   // All hooks must be called before any conditional returns
   const { data: content, isLoading } = useQuery<Content>({
     queryKey: ["/api/content"],
