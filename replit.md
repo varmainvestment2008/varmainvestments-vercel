@@ -6,18 +6,19 @@ A modern, professional website for Varma Investments - an investment firm specia
 
 This is a full-stack website built with:
 - **Frontend**: React, TypeScript, Tailwind CSS, Shadcn UI
-- **Backend**: Express.js, Node.js
-- **Content Management**: JSON-based storage with easy editing
+- **Backend**: Express.js, Node.js, PostgreSQL Database
+- **Content Management**: Database-backed CMS with easy editing
 
 ## Features
 
 ✅ Professional landing page with hero section
-✅ Services showcase (Shares, Mutual Funds, Bonds)
+✅ Services showcase (Shares, Mutual Funds, Bonds, Insurance)
 ✅ Client testimonials
 ✅ Statistics display
 ✅ Free consultation form
-✅ Contact information
+✅ Contact information with Google Maps integration
 ✅ **Easy Content Management System** - Edit all website content without coding!
+✅ **Database-backed storage** - CMS works perfectly on Vercel and other hosting platforms!
 
 ## How to Manage Website Content
 
@@ -31,7 +32,7 @@ This is a full-stack website built with:
 
 The admin panel lets you edit:
 - **Hero Section**: Company name, tagline, description, trust indicators
-- **Services**: Edit the three services (title, description, features)
+- **Services**: Edit all four services - Shares, Mutual Funds, Bonds, and Insurance (title, description, features)
 - **Statistics**: Update the numbers and labels
 - **Testimonials**: Edit client reviews and names
 - **Contact Info**: Update phone, email, address, business hours
@@ -62,32 +63,30 @@ To change the admin password:
 4. Create a new repository or connect to existing one
 5. Click **"Commit & Push"** to save your code to GitHub
 
-All your content changes are automatically saved to the `server/content.json` file, which will be included in your Git commits.
+All your content changes are automatically saved to the PostgreSQL database, ensuring your edits persist even on platforms like Vercel and Netlify.
 
 ### Deploying Your Website
 
-#### Option 1: Deploy on Replit (Quick Start)
+#### Option 1: Deploy on Vercel (Recommended - Works with CMS!)
+1. Push your code to GitHub (see above)
+2. Go to [vercel.com](https://vercel.com) and sign up
+3. Click **"New Project"** and import your GitHub repository
+4. **Important**: Add environment variable `DATABASE_URL` with your production database URL
+5. Deploy with one click
+6. **The CMS admin panel will work perfectly on Vercel!**
+
+#### Option 2: Deploy on Replit (Quick Start)
 1. Click the **"Deploy"** button at the top of Replit
-2. Select **"Static"** deployment
-3. Your site will be live at `your-project.replit.app`
+2. Your site will be live at `your-project.replit.app`
+3. The database and CMS will work automatically
 4. **Free tier** includes basic hosting
 
-#### Option 2: Deploy on Netlify (Free Forever with Custom Domain)
-1. Push your code to GitHub (see above)
+#### Option 3: Deploy on Netlify
+1. Push your code to GitHub
 2. Go to [netlify.com](https://netlify.com) and sign up
-3. Click **"New site from Git"**
-4. Connect your GitHub repository
-5. Deploy settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-6. Your site will be live with free custom domain support!
-
-#### Option 3: Deploy on Vercel (Alternative Free Option)
-1. Push code to GitHub
-2. Go to [vercel.com](https://vercel.com) and sign up
-3. Click **"New Project"**
-4. Import your GitHub repository
-5. Deploy with one click - free forever!
+3. Click **"New site from Git"** and connect your GitHub repository
+4. **Important**: Add environment variable `DATABASE_URL` with your production database URL
+5. Your site will be live with free custom domain support!
 
 ## File Structure
 
@@ -100,11 +99,12 @@ All your content changes are automatically saved to the `server/content.json` fi
 │   │   │   └── Admin.tsx  # Content management panel
 │   │   └── App.tsx        # Main app component
 ├── server/                # Backend code
-│   ├── content.json      # Website content (editable via admin panel)
+│   ├── content.json      # Initial content template
+│   ├── db.ts             # Database connection
 │   ├── routes.ts         # API routes
-│   └── storage.ts        # Data storage logic
+│   └── storage.ts        # Database storage logic
 └── shared/               # Shared types between frontend/backend
-    └── schema.ts         # Data schemas
+    └── schema.ts         # Data schemas and database models
 
 ```
 
@@ -126,8 +126,9 @@ If you need help:
 
 - Always click "Save All Changes" in the admin panel before leaving
 - Your admin password is `varma2025` by default - change it for security!
-- Content is stored in `server/content.json` - it's automatically backed up when you push to Git
+- **Content is stored in PostgreSQL database** - changes persist across deployments on Vercel, Netlify, and other platforms
 - Images for testimonials are pre-generated and can't be changed from the admin panel (contact developer to update)
+- The admin panel (`/admin`) now works perfectly on all hosting platforms including Vercel!
 
 ---
 
