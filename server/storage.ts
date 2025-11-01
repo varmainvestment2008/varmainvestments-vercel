@@ -1,10 +1,9 @@
-import { type User, type InsertUser, type Content } from "@shared/schema";
+import { type User, type InsertUser, type Content, websiteContent } from "@shared/schema";
 import { randomUUID } from "crypto";
-import { readFile, writeFile } from "fs/promises";
+import { readFile } from "fs/promises";
 import { join } from "path";
-
-// modify the interface with any CRUD methods
-// you might need
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -14,13 +13,33 @@ export interface IStorage {
   updateContent(content: Content): Promise<Content>;
 }
 
-export class MemStorage implements IStorage {
+export class DbStorage implements IStorage {
   private users: Map<string, User>;
-  private contentPath: string;
+  private contentId: string = "main";
 
   constructor() {
     this.users = new Map();
-    this.contentPath = join(process.cwd(), "server", "content.json");
+    this.initializeContent();
+  }
+
+  private async initializeContent() {
+    try {
+      const existingContent = await db.select().from(websiteContent).where(eq(websiteContent.id, this.contentId));
+      
+      if (existingContent.length === 0) {
+        const contentPath = join(process.cwd(), "server", "content.json");
+        const data = await readFile(contentPath, "utf-8");
+        const initialContent = JSON.parse(data) as Content;
+        
+        await db.insert(websiteContent).values({
+          id: this.contentId,
+          content: initialContent as any,
+        });
+        console.log("Database initialized with content from content.json");
+      }
+    } catch (error) {
+      console.error("Error initializing content:", error);
+    }
   }
 
   async getUser(id: string): Promise<User | undefined> {
@@ -42,21 +61,31 @@ export class MemStorage implements IStorage {
 
   async getContent(): Promise<Content> {
     try {
-      const data = await readFile(this.contentPath, "utf-8");
-      return JSON.parse(data) as Content;
+      const result = await db.select().from(websiteContent).where(eq(websiteContent.id, this.contentId));
+      
+      if (result.length === 0) {
+        throw new Error("Content not found in database");
+      }
+      
+      return result[0].content as Content;
     } catch (error) {
-      throw new Error("Failed to read content file");
+      console.error("Error fetching content from database:", error);
+      throw new Error("Failed to read content from database");
     }
   }
 
   async updateContent(content: Content): Promise<Content> {
     try {
-      await writeFile(this.contentPath, JSON.stringify(content, null, 2), "utf-8");
+      await db.update(websiteContent)
+        .set({ content: content as any })
+        .where(eq(websiteContent.id, this.contentId));
+      
       return content;
     } catch (error) {
-      throw new Error("Failed to update content file");
+      console.error("Error updating content in database:", error);
+      throw new Error("Failed to update content in database");
     }
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DbStorage();
