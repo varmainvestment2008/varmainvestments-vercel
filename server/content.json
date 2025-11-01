@@ -47,6 +47,18 @@
         "Liquidity Solutions"
       ],
       "icon": "shield"
+    },
+    {
+      "title": "Insurance",
+      "description": "Comprehensive health insurance plans offering financial protection against high medical costs and ensuring access to quality healthcare for you and your family.",
+      "features": [
+        "Financial Protection Against High Medical Costs",
+        "Access to Quality and Timely Care",
+        "Coverage for Routine and Preventive Care",
+        "Protection for Your Family",
+        "Mitigation of Financial and Health Risks"
+      ],
+      "icon": "shield"
     }
   ],
   "stats": [

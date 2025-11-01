@@ -55,7 +55,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {contactInfo.map((info, index) => (
             <Card key={index} className="p-6" data-testid={`card-contact-${index}`}>
               <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
@@ -72,6 +72,30 @@ export default function Contact() {
             </Card>
           ))}
         </div>
+
+        <Card className="overflow-hidden" data-testid="card-map">
+          <div className="aspect-video w-full">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.9863422967887!2d74.4777!3d19.7167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDQzJzAwLjEiTiA3NMKwMjgnMzkuNyJF!5e0!3m2!1sen!2sin!4v1234567890!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Varma Investments Location - Rahata"
+              data-testid="iframe-map"
+            />
+          </div>
+          <div className="p-6 bg-card">
+            <h3 className="font-semibold text-foreground mb-2" data-testid="text-map-title">
+              Our Location
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              {content.contact.address.line1}, {content.contact.address.line2}, {content.contact.address.line3}
+            </p>
+          </div>
+        </Card>
       </div>
     </section>
   );
