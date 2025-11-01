@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import logoImage from "@assets/generated_images/Varma_Investments_professional_logo_2b3504d1.png";
+import logoImage from "@assets/generated_images/vlogo.png";
 
 export default function Header() {
   return (
